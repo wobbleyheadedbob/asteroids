@@ -2,6 +2,7 @@ from constants import *
 from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
+from shot import Shot
 # this allows us to use code from
 # the open-source pygame library
 # throughout this file
@@ -17,13 +18,16 @@ def main():
     asteroids = pygame.sprite.Group() # All the asteroid objects that are spawned
     updatable = pygame.sprite.Group() # All the objects that can be updated
     drawable = pygame.sprite.Group() # All the objects that can be drawn
+    shots = pygame.sprite.Group() # All the shots that are on screen
     
     Asteroid.containers = (updatable, drawable, asteroids)
     AsteroidField.containers = (updatable,)
-    Player.containers = (updatable, drawable)
-        
-    player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
     asteroid_field = AsteroidField()
+
+    Player.containers = (updatable, drawable)
+    player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+    
+    Shot.containers = (updatable, drawable, shots)
 
     dt = 0
     
