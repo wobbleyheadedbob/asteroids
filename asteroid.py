@@ -10,7 +10,6 @@ class Asteroid(CircleShape):
         super().__init__(x, y, radius)
 
     def draw(self, screen):
-        #p osition, radius, and a width of 2
         pygame.draw.circle(screen, "white", self.position , self.radius)
 
     def move(self, dt):
